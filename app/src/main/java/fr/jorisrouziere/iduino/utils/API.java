@@ -1,22 +1,17 @@
 package fr.jorisrouziere.iduino.utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 public class API {
 
-    // TODO : AJOUTER URL
-    private static final String BASE_URL = "...";
+    private static final String BASE_URL = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=osm-fr-bars%40babel&q=&rows=9000&facet=brewery&facet=wheelchair&facet=toilets_wheelchair&facet=addr_postcode&timezone=Europe%2FParis";
 
     private static API sAPI;
     private final OkHttpClient mHttpClient;
@@ -50,26 +45,13 @@ public class API {
                 .build();
     }
 
-    private void handleApiError(Response response) throws ApiErrorException, IOException {
-        if (response.code() >= HttpsURLConnection.HTTP_BAD_REQUEST) {
-            throw new ApiErrorException(Objects.requireNonNull(response.body()).string());
-        }
-    }
+    public String getBars() throws IOException {
+        Response listResponse = getSynchronous("");
 
-    private List<?> handleApiErrorList(Response response) throws ApiErrorException, IOException {
-        if (HttpsURLConnection.HTTP_NOT_FOUND == response.code()) {
-            response.close();
-            return new ArrayList<>();
+        if (HttpsURLConnection.HTTP_OK == listResponse.code()) {
+            return listResponse.body().string();
         } else {
-            throw new ApiErrorException(Objects.requireNonNull(response.body()).string());
+            return null;
         }
     }
-
-    public static class ApiErrorException extends Exception {
-        public ApiErrorException(String message) {
-            super(message);
-        }
-    }
-
-    // TODO : AJOUTER GET, ME DEMANDER QUAND API + ROUTES TROUVÉES
 }
