@@ -10,4 +10,9 @@
         android:name="fr.jorisrouziere.iduino.ui.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/favorisFragment"
+        android:name="fr.jorisrouziere.iduino.ui.FavorisFragment"
+        android:label="fragment_favoris_list"
+        tools:layout="@layout/fragment_favoris_list" />
 </navigation>
