@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import fr.jorisrouziere.iduino.model.Bar;
+import fr.jorisrouziere.iduino.ui.MapsFragment;
 
 public class ApiUtils {
 
@@ -37,6 +38,7 @@ public class ApiUtils {
 
                 bars.add(bar);
             }
+            MapsFragment.Companion.setBars(bars);
         }).start();
     }
 }

@@ -11,9 +11,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import fr.jorisrouziere.iduino.R
+import fr.jorisrouziere.iduino.model.Bar
 
 
 class MapsFragment : Fragment() {
+    companion object {
+        lateinit var bars: ArrayList<Bar>
+    }
+
     private var sydney = LatLng(-34.00, 151.00)
     private var TamWorth = LatLng(-31.083332, 150.916672)
     private var NewCastle = LatLng(-32.916668, 151.750000)
