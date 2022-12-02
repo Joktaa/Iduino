@@ -1,4 +1,4 @@
-package fr.jorisrouziere.iduino.Fragments
+package fr.jorisrouziere.iduino.ui
 
 import android.os.Bundle
 import android.os.Handler
