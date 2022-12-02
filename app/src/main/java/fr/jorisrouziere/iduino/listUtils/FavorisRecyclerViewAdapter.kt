@@ -28,6 +28,8 @@ class FavorisRecyclerViewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values[position]
         holder.nameView.text = item.name
+
+        // TODO : Ajouter un stockage pour le système de favoris
     }
 
     override fun getItemCount(): Int = values.size
