@@ -1,6 +1,7 @@
 package fr.jorisrouziere.iduino.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,12 +20,6 @@ class MapsFragment : Fragment() {
         lateinit var bars: ArrayList<Bar>
     }
 
-    private var sydney = LatLng(-34.00, 151.00)
-    private var TamWorth = LatLng(-31.083332, 150.916672)
-    private var NewCastle = LatLng(-32.916668, 151.750000)
-    private var Brisbane = LatLng(-27.470125, 153.021072)
-
-
     private var locationArrayList: ArrayList<LatLng>? = null
 
     private val callback = OnMapReadyCallback { googleMap ->
@@ -38,6 +33,7 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
+        Log.d("bars : ", bars.toString())
         for (i in locationArrayList!!.indices) {
 
             googleMap.addMarker(MarkerOptions().position(locationArrayList!![i]).title("Marker"))
@@ -63,10 +59,11 @@ class MapsFragment : Fragment() {
 
         locationArrayList = ArrayList()
 
-        locationArrayList!!.add(sydney)
-        locationArrayList!!.add(TamWorth);
-        locationArrayList!!.add(NewCastle);
-        locationArrayList!!.add(Brisbane);
+        for (i in bars.indices) {
+
+            locationArrayList!!.add(LatLng(bars[i].lat, bars[i].lon))
+        }
+
     }
 }
 
