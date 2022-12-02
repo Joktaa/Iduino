@@ -11,7 +11,7 @@ import okhttp3.Response;
 
 public class API {
 
-    private static final String BASE_URL = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=osm-fr-bars%40babel&q=&rows=9000&facet=brewery&facet=wheelchair&facet=toilets_wheelchair&facet=addr_postcode&timezone=Europe%2FParis";
+    private static final String BASE_URL = "https://data.opendatasoft.com/api/records/1.0/search/?dataset=osm-fr-bars%40babel&q=&rows=3000&facet=brewery&facet=wheelchair&facet=toilets_wheelchair&facet=addr_postcode&timezone=Europe%2FParis";
 
     private static API sAPI;
     private final OkHttpClient mHttpClient;

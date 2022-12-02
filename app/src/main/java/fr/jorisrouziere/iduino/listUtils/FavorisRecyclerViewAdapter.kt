@@ -37,7 +37,6 @@ class FavorisRecyclerViewAdapter(
     inner class ViewHolder(binding: ItemBarBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val nameView: TextView = binding.itemName
-        val carteButton: Button = binding.itemCarteButton
         val favoriteButton: ImageButton = binding.itemFavoriteButton
 
         override fun toString(): String {

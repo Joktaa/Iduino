@@ -3,7 +3,6 @@ package fr.jorisrouziere.iduino.ui
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -73,6 +72,7 @@ class FragmentSplashScreen : Fragment() {
             }
 
             MainFragment.bars = bars
+            MapsFragment.bars = bars
 
             Handler(Looper.getMainLooper()).post {
                 findNavController().navigate(R.id.action_fragmentSplashScreen2_to_mainFragment)

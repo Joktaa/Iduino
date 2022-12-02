@@ -14,6 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // TODO : Dans l'écran de chargement
-        ApiUtils.get();
+        //ApiUtils.get();
     }
 }

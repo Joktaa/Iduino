@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import fr.jorisrouziere.iduino.R
 
 import fr.jorisrouziere.iduino.databinding.ItemBarBinding
 import fr.jorisrouziere.iduino.model.Bar
@@ -35,7 +37,6 @@ class MainRecyclerViewAdapter(
     inner class ViewHolder(binding: ItemBarBinding) :
         RecyclerView.ViewHolder(binding.root) {
         val nameView: TextView = binding.itemName
-        val carteButton: Button = binding.itemCarteButton
         val favoriteButton: ImageButton = binding.itemFavoriteButton
 
         override fun toString(): String {

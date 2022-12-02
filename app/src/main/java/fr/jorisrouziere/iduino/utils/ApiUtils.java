@@ -38,7 +38,6 @@ public class ApiUtils {
 
                 bars.add(bar);
             }
-            MapsFragment.Companion.setBars(bars);
         }).start();
     }
 }

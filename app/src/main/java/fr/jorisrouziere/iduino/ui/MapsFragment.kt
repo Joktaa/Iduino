@@ -1,24 +1,28 @@
 package fr.jorisrouziere.iduino.ui
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import fr.jorisrouziere.iduino.R
 import fr.jorisrouziere.iduino.model.Bar
-import kotlin.collections.ArrayList
 
 class MapsFragment : Fragment() {
     companion object {
         lateinit var bars: ArrayList<Bar>
     }
-    private var locationArrayList: ArrayList<LatLng>? = null
+
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -30,11 +34,11 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        for (i in locationArrayList!!.indices) {
+        for (i in bars.indices) {
 
-            googleMap.addMarker(MarkerOptions().position(locationArrayList!![i]).title("Marker"))
+            googleMap.addMarker(MarkerOptions().position(LatLng(bars[i].lat, bars[i].lon)).title(bars[i].name)) //+ "\n" + bars[i].phone
             googleMap.animateCamera(CameraUpdateFactory.zoomTo(18.0f))
-            googleMap.moveCamera(CameraUpdateFactory.newLatLng(locationArrayList!![i]))
+            googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(bars[i].lat, bars[i].lon)))
         }
 
     }
@@ -44,7 +48,9 @@ class MapsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_maps, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,11 +58,7 @@ class MapsFragment : Fragment() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
 
-        locationArrayList = ArrayList()
-
-        for (i in bars.indices) {
-            locationArrayList!!.add(LatLng(bars[i].lat, bars[i].lon))
-        }
     }
+
 }
 
