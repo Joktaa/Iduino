@@ -1,21 +1,21 @@
-
 package fr.jorisrouziere.iduino.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import fr.jorisrouziere.iduino.listUtils.FavorisRecyclerViewAdapter
 import fr.jorisrouziere.iduino.R
-import fr.jorisrouziere.iduino.listUtils.MainRecyclerViewAdapter
 import fr.jorisrouziere.iduino.model.Bar
 
-class MainFragment : Fragment() {
+class FavorisFragment : Fragment() {
 
     private var columnCount = 1
+    private val values: List<Bar> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_main, container, false)
+        val view = inflater.inflate(R.layout.fragment_favoris_list, container, false)
 
         // Set the adapter
         if (view is RecyclerView) {
@@ -38,14 +38,13 @@ class MainFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MainRecyclerViewAdapter(bars)
+                adapter = FavorisRecyclerViewAdapter(values)
             }
         }
         return view
     }
 
     companion object {
-        lateinit var bars: ArrayList<Bar>
 
         // TODO: Customize parameter argument names
         const val ARG_COLUMN_COUNT = "column-count"
