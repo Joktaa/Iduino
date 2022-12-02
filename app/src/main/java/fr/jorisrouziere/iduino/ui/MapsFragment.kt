@@ -1,7 +1,6 @@
 package fr.jorisrouziere.iduino.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import fr.jorisrouziere.iduino.R
 import fr.jorisrouziere.iduino.model.Bar
-
+import kotlin.collections.ArrayList
 
 class MapsFragment : Fragment() {
     companion object {
         lateinit var bars: ArrayList<Bar>
     }
-
     private var locationArrayList: ArrayList<LatLng>? = null
-
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -33,7 +30,6 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        Log.d("bars : ", bars.toString())
         for (i in locationArrayList!!.indices) {
 
             googleMap.addMarker(MarkerOptions().position(locationArrayList!![i]).title("Marker"))
@@ -54,16 +50,13 @@ class MapsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-
         mapFragment?.getMapAsync(callback)
 
         locationArrayList = ArrayList()
 
         for (i in bars.indices) {
-
             locationArrayList!!.add(LatLng(bars[i].lat, bars[i].lon))
         }
-
     }
 }
 
