@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Favorite"
+        android:id="@+id/favorite"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        />
+    <item android:title="List"
+        android:id="@+id/list"
+        android:icon="@drawable/ic_baseline_list_24"
+
+
+        />
+
+
+    <item android:title="Map"
+        android:id="@+id/map"
+        android:icon="@drawable/ic_baseline_map_24"
+
+
+        />
+
+</menu>

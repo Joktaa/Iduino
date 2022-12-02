@@ -10,8 +10,8 @@
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
-            android:id="@+id/action_fragmentSplashScreen2_to_mainFragment"
-            app:destination="@id/mapsFragment" />
+            android:id="@+id/action_fragmentSplashScreen2_to_whitescreentest"
+            app:destination="@id/whitescreentest" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
@@ -28,4 +28,9 @@
         android:name="fr.jorisrouziere.iduino.ui.FavorisFragment"
         android:label="fragment_favoris_list"
         tools:layout="@layout/fragment_favoris_list" />
+    <fragment
+        android:id="@+id/whitescreentest"
+        android:name="fr.jorisrouziere.iduino.whitescreentest"
+        android:label="fragment_whitescreentest"
+        tools:layout="@layout/fragment_whitescreentest" />
 </navigation>

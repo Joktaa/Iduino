@@ -75,7 +75,7 @@ class FragmentSplashScreen : Fragment() {
             MapsFragment.bars = bars
 
             Handler(Looper.getMainLooper()).post {
-                findNavController().navigate(R.id.action_fragmentSplashScreen2_to_mainFragment)
+                findNavController().navigate(R.id.action_fragmentSplashScreen2_to_whitescreentest)
             }
 
         }.start()

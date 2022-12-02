@@ -17,5 +17,8 @@
 
         />
 
+    <include
+        android:id="@+id/NavBarInclude"
+        layout="@layout/navbar"></include>
 
 </RelativeLayout>
